@@ -6,7 +6,7 @@ repositories { jcenter() }
 plugins {
   idea
   application
-  kotlin("jvm") version "1.2.61"
+  kotlin("jvm") version "1.3.0"
   id("com.google.protobuf") version "0.8.6"
 }
 
@@ -16,7 +16,7 @@ application { mainClassName = "ca.cutterslade.experiment.gk.MainKt" }
 
 dependencies {
   compile(kotlin("stdlib-jdk8"))
-  compile("org.jetbrains.kotlinx:kotlinx-coroutines-core:0.24.0")
+  compile("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.0.0")
   compile("com.google.protobuf:protobuf-java:3.6.1")
   compile("io.grpc:grpc-stub:1.14.0")
   compile("io.grpc:grpc-protobuf:1.14.0")
@@ -33,7 +33,7 @@ protobuf {
       }
       "plugins" {
         "create"("grpc-kotlin") {
-          "setArtifact"("io.rouz:grpc-kotlin-gen:0.0.2:jdk8@jar")
+          "setArtifact"("io.rouz:grpc-kotlin-gen:0.0.5:jdk8@jar")
         }
         "create"("grpc-java") {
           "setArtifact"("io.grpc:protoc-gen-grpc-java:1.14.0")
@@ -47,5 +47,4 @@ protobuf {
   }
 }
 kotlin {
-  experimental.coroutines = Coroutines.ENABLE
 }

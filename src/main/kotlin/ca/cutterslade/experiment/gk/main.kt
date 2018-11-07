@@ -2,7 +2,7 @@ package ca.cutterslade.experiment.gk
 
 import io.grpc.ManagedChannelBuilder
 import io.grpc.ServerBuilder
-import kotlinx.coroutines.experimental.runBlocking
+import kotlinx.coroutines.runBlocking
 
 
 fun main(args: Array<String>) {
@@ -19,10 +19,10 @@ fun main(args: Array<String>) {
   val greeter = GreeterGrpcKt.newStub(channel)
 
   runBlocking {
-    val response = greeter.sayHello(HelloRequest.newBuilder().setName("coroutines").build()).await()
+    val response = greeter.sayHello(HelloRequest.newBuilder().setName("coroutines").build())
     println(response.message)
 
-    val responseAgain = greeter.sayHelloAgain(HelloRequest.newBuilder().setName("kotlin").build()).await()
+    val responseAgain = greeter.sayHelloAgain(HelloRequest.newBuilder().setName("kotlin").build())
     println(responseAgain.message)
   }
 
